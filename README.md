@@ -5,5 +5,5 @@
 * Générer la jauge
 * Connexion à la BDD
 * Gérer les erreurs de saisie
-* XML
-* Interface
+* XML : utiliser etree
+* Interface graphique
