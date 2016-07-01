@@ -69,7 +69,7 @@ print(k)
 proportionPositif = (i*100)/(i+j)
 proportionNegatif = (j*100)/(i+j)
 # tauxFiabilite = ??
-# print("Le taux de fiabilité de l'analyse est de: %")
+# print("Le taux de fiabilité de l'analyse est de " tauxFiabilite " %")
 
 # génération du graphique "+" vs "-"
 name = ['positif', 'négatif']
