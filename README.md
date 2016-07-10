@@ -5,8 +5,8 @@
 * Gérer les erreurs de saisie
 * XML : utiliser ETREE
 * Interface graphique
-* 
-## ce qu'il faut absolument récupérer
+
+##Ce qu'il faut absolument récupérer
 * server.conf
 * server.py
 * index.html (à mettre dans un dossier templates)
