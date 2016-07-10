@@ -5,6 +5,8 @@
 * Gérer les erreurs de saisie
 * XML : utiliser ETREE
 * Interface graphique
+* Ecrire un petit texte explicatif
+* Calculer le taux de fiabilité des résultats de l'analyse
 
 ##Ce qu'il faut absolument récupérer
 * server.conf
