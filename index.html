@@ -1,5 +1,17 @@
-<form method='GET' action='accueil'>
-    Entrez l'URL :
-    <input type='text' name='url'>
-    <input type='submit' value='OKAY'>
-</form>
+<html>
+	<head>
+	    <meta charset="utf-8" />
+		<title> Web Extractor </title>
+		<link rel="stylesheet" href="css/style.css" >
+	</head>
+	<body>
+		<h1>Web Extractor</h1>
+        <form  name="search" action="/resultat" method="POST">
+		    <fieldset>
+                Entrez votre URL :
+		        <input placeholder="URL " name="url" id="url"/><br/>
+			</fieldset>
+			<p><input type="submit" value="Valider"></p>	<!--target="_blank" pour une autre page-->
+		</form>
+    </body>
+</html>
