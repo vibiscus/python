@@ -1,20 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    <link rel="stylesheet" href="templates/python.css" >
 </head>
 <body>
     <h1>Web Extractor</h1>
-    <p>
+    <p class="url">
         L'url est : {{ url }}
     </p>
      <h2>Graphique</h2>
-    <p>
+    <div class="graph">
         <img src='/templates/graph.png'/>
-    </p>
+    </div>
 
     <h2>Word cloud</h2>
-    <p>
+    <div class="wc">
         <img src='/templates/wc.png'/>
-    </p>
-    <p>
-        Le taux de fiabilité des résultats sont de : {{ fiabilite }} %.
+    </div>
+    <p class="fiabilite">
+        La fiabilité des résultats obtenus n'est pas de 100% étant donné la non-exhausitivité des dictionnaires utilisés.
     </p>
 </body>
 </html>
