@@ -18,12 +18,6 @@ class HelloWorld(object):
             tmpl = env.get_template('index.html')
             return tmpl.render()
 
-        # connexion bdd
-        def connect(self):
-           tmpl = env.get_template('gloubibibibib.py')
-           return tmpl.render()
-
-
         def resultat(self, url = None):
 
             # ====================== TRAITEMENT URL ======================
@@ -83,27 +77,10 @@ class HelloWorld(object):
                 print(tab_neutre)
                 print(k)
 
-                 # ======================== stockage BDD ==========================
-
-                #w = str(o)
-                #conn = mysql.connector.connect(host='localhost',database='Python', user='root', password='root', port = 8889 )
-                #cursor = conn.cursor(pymysql.cursors.DictCursor)
-                #cursor.execute ("INSERT INTO WebExtractor(url, liste_positif, liste_negatif, liste_neutre) VALUES (%s, %s, %s, %s)" %(w, tab_positif, tab_negatif, tab_neutre))
-                #conn.commit()
-                #cursor.close()
-                #conn.close()
-                #var_string = ', '.join('?' * len(tab_positif))
-                #query_string = 'INSERT INTO WebExtractor VALUES (%s);' % var_string
-                #cur.execute(query_string, tab_positif_positif)
-
-                # ====================== CALCULS ======================
+                # ====================== GRAPHIQUE "+" / "-" ======================
 
                 proportionPositif = (i*100)/(i+j)
                 proportionNegatif = (j*100)/(i+j)
-                #fiabilite =
-
-
-                # ====================== GRAPHIQUE "+" / "-" ======================
 
                 name = ['positif', 'négatif']
                 data = [proportionPositif, proportionNegatif]
@@ -167,14 +144,27 @@ class HelloWorld(object):
                 tmpl = env.get_template('resultat.html')
                 return tmpl.render(url=url)
 
+                 # ======================== stockage BDD ==========================
 
-            else:
-                 def error(self):
-                    tmpl = env.get_template('error.html')
-                    return tmpl.render()
-            error.exposed = True
+                w = str(o)
+                conn = mysql.connector.connect(host='localhost',database='Python', user='root', password='root', port = 8889 )
+                cursor = conn.cursor(pymysql.cursors.DictCursor)
+                filedb = open('/dico.txt', 'r')
+                file_content = file.read()
+                file.close()
+                #cursor.execute("INSERT INTO WebExtractor(url, xml) VALUES (%s, %s)",  (w, file_content))
+                #query = "INSERT INTO testpython VALUES (%s)"
+                #cursor.execute(query, (file_content,))
+                conn.commit()
+                cursor.close()
+                conn.close()
+
+            #else:
+                 #def error(self):
+                    #tmpl = env.get_template('error.html')
+                    #return tmpl.render()
+            #error.exposed = True
         index.exposed = True
         resultat.exposed = True
-        connect.exposed = True
 cherrypy.config.update({"tools.staticdir.root":os.getcwd()})
 cherrypy.quickstart(HelloWorld(), config='server.conf')
