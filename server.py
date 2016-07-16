@@ -46,18 +46,6 @@ class HelloWorld(object):
                 chaine = chaine.lower()
                 newlist = chaine.split()
 
-                 # ======================== stockage BDD ==========================
-
-                #w = str(url)
-                conn = mysql.connector.connect(host='localhost',database='Python', user='root', password='root', port = 8889 )
-                cursor = conn.cursor(pymysql.cursors.DictCursor)
-                cursor.execute ("INSERT INTO WebExtractor(url, liste_positif, liste_negatif, liste_neutre) VALUES (url, 'pos', 'neg', 'neutre')")
-                conn.commit()
-                cursor.close()
-                conn.close()
-                #var_string = ', '.join('?' * len(tab_positif))
-                #query_string = 'INSERT INTO WebExtractor VALUES (%s);' % var_string
-                #cur.execute(query_string, tab_positif_positif)
 
                 # ====================== TRI DU TEXTE ======================
 
@@ -95,6 +83,18 @@ class HelloWorld(object):
                 print(tab_neutre)
                 print(k)
 
+                 # ======================== stockage BDD ==========================
+
+                #w = str(o)
+                #conn = mysql.connector.connect(host='localhost',database='Python', user='root', password='root', port = 8889 )
+                #cursor = conn.cursor(pymysql.cursors.DictCursor)
+                #cursor.execute ("INSERT INTO WebExtractor(url, liste_positif, liste_negatif, liste_neutre) VALUES (%s, %s, %s, %s)" %(w, tab_positif, tab_negatif, tab_neutre))
+                #conn.commit()
+                #cursor.close()
+                #conn.close()
+                #var_string = ', '.join('?' * len(tab_positif))
+                #query_string = 'INSERT INTO WebExtractor VALUES (%s);' % var_string
+                #cur.execute(query_string, tab_positif_positif)
 
                 # ====================== CALCULS ======================
 
@@ -145,6 +145,10 @@ class HelloWorld(object):
 
                 dicos = etree.Element("Dictionnaires")
 
+                for neutre_data in tab_neutre:
+                    motneutre = etree.SubElement(dicos, "motneutre")
+                    motneutre.text = neutre_data
+
                 for pos_data in tab_positif:
                     motpos = etree.SubElement(dicos, "motpos")
                     motpos.text = pos_data
@@ -153,13 +157,12 @@ class HelloWorld(object):
                     motneg = etree.SubElement(dicos, "motneg")
                     motneg.text = neg_data
 
-                for neutre_data in tab_negatif:
-                    motneutre = etree.SubElement(dicos, "motneutre")
-                    motneutre.text = neutre_data
-
                 print(etree.tostring(dicos, pretty_print=True))
-
-                # mettre dans un fichier
+                var = etree.tostring(dicos, pretty_print=True)
+                var2= str(var)
+                file = open("dico.txt", "w" , encoding="utf-8")
+                file.write(var2)
+                file.close()
 
                 tmpl = env.get_template('resultat.html')
                 return tmpl.render(url=url)
