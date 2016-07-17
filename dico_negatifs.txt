@@ -16,6 +16,10 @@ atrabilaire
 agassement
 balourdise
 barbarie
+bémol
+bemol
+bémols
+bemols
 bétise
 bien-fondé
 bruyant
@@ -32,6 +36,11 @@ courroux
 critique
 critiquent
 critiques
+coincé
+coincée
+coincées
+coincer
+coincés
 contradiction
 crainte
 craintes
@@ -69,6 +78,7 @@ dépités
 duplicité
 défaitisme
 défaitiste
+dommage
 doute
 douteuse
 douteuses
