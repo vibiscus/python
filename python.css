@@ -1,0 +1,33 @@
+body
+	{
+    font-family: Arial, Helvetica, sans-serif;
+	}
+
+
+h1
+    {
+    background-color : #F5F5F5;
+    text-align : center;
+    }
+
+h2
+    {
+    border: 2px solid;
+    }
+
+.graph
+    {
+    float: center;
+    }
+
+.wc
+    {
+    float: center;
+    }
+
+.fiabilite
+    {
+    color : #778899;
+    font-style: italic;
+    }
+
