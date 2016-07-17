@@ -11,6 +11,7 @@
 * index.html (à mettre dans un dossier templates)
 * resultat.html (à mettre dans un dossier templates)
 * error.html : à confirmer
+* les 3 dictionnaires
 
 ##Remarque: plus de problème pour l'affichage du graphique, parce qu'on fait un clear !!
 
