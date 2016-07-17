@@ -21,11 +21,13 @@ class HelloWorld(object):
         def resultat(self, url = None):
 
             # ====================== TRAITEMENT URL ======================
-
+            # vérifier que c'est une url
+            #vérifier que l'url est valide
             o = urlparse(url)
             saisie = "https://" +o.hostname
             zalando ="https://www.zalando.fr"
             if saisie == zalando:
+
                 r = requests.get(url)
                 soup = BeautifulSoup(r.content, "lxml")
 
@@ -49,8 +51,6 @@ class HelloWorld(object):
 
                 # on enlève les mots de la liste poubelle --> on obtient malistefinale
                 malistefinale = [i for i in newlist if i not in dico_poubelle]
-
-                #print (malistefinale)
 
                 i =0
                 j =0
@@ -85,12 +85,12 @@ class HelloWorld(object):
                 name = ['positif', 'négatif']
                 data = [proportionPositif, proportionNegatif]
 
-                print("Proportion d'avis positifs et négatifs")
                 explode=(0, 0.15)
                 plt.pie(data, labels=name, autopct='%1.1f%%', startangle=90, colors="gr")
                 plt.axis('equal')
                 plt.axis("off")
                 plt.savefig('templates/graph.png')
+                plt.clf()
 
                 # ======================== WORD CLOUD ==========================
 
@@ -117,6 +117,7 @@ class HelloWorld(object):
                 plt.imshow(wordcloud)
                 plt.axis("off")
                 plt.savefig('templates/wc.png')
+                plt.clf()
 
                 # ======================== CRÉATION XML ==========================
 
@@ -134,36 +135,33 @@ class HelloWorld(object):
                     motneg = etree.SubElement(dicos, "motneg")
                     motneg.text = neg_data
 
-                print(etree.tostring(dicos, pretty_print=True))
-                var = etree.tostring(dicos, pretty_print=True)
+                print(etree.tostring(dicos, pretty_print=False))
+                var = etree.tostring(dicos, pretty_print=False)
                 var2= str(var)
                 file = open("dico.txt", "w" , encoding="utf-8")
                 file.write(var2)
                 file.close()
 
-                tmpl = env.get_template('resultat.html')
-                return tmpl.render(url=url)
-
                  # ======================== stockage BDD ==========================
 
-                w = str(o)
+                w = o.netloc + o.path
                 conn = mysql.connector.connect(host='localhost',database='Python', user='root', password='root', port = 8889 )
                 cursor = conn.cursor(pymysql.cursors.DictCursor)
-                filedb = open('/dico.txt', 'r')
-                file_content = file.read()
-                file.close()
-                #cursor.execute("INSERT INTO WebExtractor(url, xml) VALUES (%s, %s)",  (w, file_content))
-                #query = "INSERT INTO testpython VALUES (%s)"
-                #cursor.execute(query, (file_content,))
+                filedb = open('dico.txt', 'r')
+                file_content = filedb.read()
+                filedb.close()
+                cursor.execute("INSERT INTO WebExtractor(url, xml) VALUES (%s, %s)",  (w, file_content))
                 conn.commit()
                 cursor.close()
                 conn.close()
 
-            #else:
-                 #def error(self):
-                    #tmpl = env.get_template('error.html')
-                    #return tmpl.render()
-            #error.exposed = True
+                tmpl = env.get_template('resultat.html')
+                return tmpl.render(url=url)
+
+            else:
+                tmpl = env.get_template('error.html')
+                return tmpl.render()
+            error.exposed = True
         index.exposed = True
         resultat.exposed = True
 cherrypy.config.update({"tools.staticdir.root":os.getcwd()})
