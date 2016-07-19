@@ -15,6 +15,11 @@ h2
     border: 2px solid;
     }
 
+.welcome
+    {
+    size: 28px;
+    }
+
 .graph
     {
     float: center;
@@ -29,5 +34,10 @@ h2
     {
     color : #778899;
     font-style: italic;
+    }
+
+.erreur
+    {
+
     }
 
