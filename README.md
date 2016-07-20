@@ -1,7 +1,7 @@
 # python
 
 ##Reste à faire 
-* Guide utilisateur
+* Guide utilisateur : guide.md
 * Eventuellement héberger?? 
 
 ##Ce qu'il faut absolument récupérer
