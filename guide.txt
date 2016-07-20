@@ -11,3 +11,5 @@ Il faut que l'url du site Zalando soit bien celle d'un produit (pour pouvoir ana
 Dans la base de données sont récupérées l'url, la date du jour et le contenu des commentaires sous format xml. 
 url et date étant la clé primaire composée, à chaque fois l'utilisateur saisit la même url, le même jour, les éventuels commentaires 
 supplémentaires sont ajoutés (update) dans xml (pas de nouvelle ligne créée).
+
+La fiabilité de l'analyse des commentaires dépend de l'exhaustivité des dictionnaires (de mots positifs, négatifs et de la liste poubelle).
