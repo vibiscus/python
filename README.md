@@ -13,8 +13,6 @@
 * error.html (à mettre dans un dossier templates)
 * les 3 dictionnaires
 
-##Remarque: plus de problème pour l'affichage du graphique, parce qu'on fait un clear !!
-
 ## Base de donnés: 
 * bdd : Python
 * table : WebExtractor
