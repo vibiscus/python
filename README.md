@@ -1,6 +1,7 @@
 # python
 
 ##Reste à faire 
+* Guide utilisateur
 * Eventuellement héberger?? 
 
 ##Ce qu'il faut absolument récupérer
