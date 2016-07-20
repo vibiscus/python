@@ -2,7 +2,7 @@
 
 ##Reste à faire 
 * Guide utilisateur : guide.md
-* Eventuellement héberger?? 
+* Eventuellement héberger : PythonAnywhere ?
 
 ##Ce qu'il faut absolument récupérer
 * server.conf
