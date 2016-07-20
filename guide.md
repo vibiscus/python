@@ -2,6 +2,7 @@
 
 L'utilisateur saisit une url et clique sur Entrer.
 Une nouvelle page s'affiche: 
+
 1. Si l'url est bien une url d'un produit du site Zalando, alors le graphique et le wordcloud apparaissent.
 2. Si l'url n'existe pas, alors le message ... apparait. 
 3. Si la saisie n'est pas une url, alors le message ... apparait.
